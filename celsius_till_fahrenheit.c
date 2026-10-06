@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "verktyg.h"
 
 double celsius_till_fahrenheit(double celsius) {
