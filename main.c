@@ -91,6 +91,18 @@ int main(void)
             printf("Resultat: %.2f\n", berakna(a, b, operatortecken));
             break;
         }
+        case 11:
+        {
+            int fran, till;
+            char sammanfattning[100];
+
+            printf("Ange start och slut (t.ex. 1 20): ");
+            scanf("%d %d", &fran, &till);
+
+            fizzbuzz_sammanfattning(fran, till, sammanfattning);
+            printf("%s\n", sammanfattning);
+            break;
+        }
         case 0:
             printf("Avslutar.\n");
             break;
