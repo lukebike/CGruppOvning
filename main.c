@@ -11,6 +11,7 @@ static void skriv_meny(void)
     printf("4. Kontrollera om ett tal ar ett primtal\n");
     printf("5. FizzBuzz for ett intervall\n");
     printf("6. Enkel rakning (+, -, *, /)\n");
+    printf("11. FizzBuzz-sammanfattning\n");
     printf("0. Avsluta\n");
     printf("Val: ");
 }
