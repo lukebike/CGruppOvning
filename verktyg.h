@@ -10,5 +10,5 @@ double berakna(double a, double b, char operatortecken);
 void konvertera_serie(double *matningar, int antal);
 void storst_rektangel(double bredder[], double hojder[], int antal,
                         double *storsta_area_ut, int *index_ut);
-
+int raknar_primtal_i_array(int tal[], int antal);
 #endif
