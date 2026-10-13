@@ -7,5 +7,8 @@ void skriv_multiplikationstabell(int tal);
 int ar_primtal(int tal);
 void skriv_fizzbuzz(int fran, int till);
 double berakna(double a, double b, char operatortecken);
+void konvertera_serie(double *matningar, int antal);
+void storst_rektangel(double bredder[], double hojder[], int antal,
+                        double *storsta_area_ut, int *index_ut);
 
 #endif
