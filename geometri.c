@@ -1,5 +1,10 @@
 #include "verktyg.h"
 
+double rektangelarea(double bredd, double hojd) {
+  return bredd * hojd;
+}
+
+
 void storst_rektangel(double bredder[], double hojder[], int antal,
                        double *storsta_area_ut, int *index_ut) {
   *storsta_area_ut = bredder[0] * hojder[0];
@@ -15,4 +20,3 @@ void storst_rektangel(double bredder[], double hojder[], int antal,
   }
 
 }
-
