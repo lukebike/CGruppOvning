@@ -17,5 +17,9 @@ Del 1:
 
 Del 2:
 
-- konvertera_serie: Johannes
-- storst_rektangel: Johannes
+- temperatur: Johannes
+- geometri: Johannes
+- multiplikation:
+- primtal: Hannes
+- fizzbuzz:
+- kalkylator:
