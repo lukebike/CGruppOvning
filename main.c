@@ -24,6 +24,8 @@ static void skriv_meny(void)
 int main(void)
 {
     int val;
+    double *matlogg = NULL;
+    int matlogg_antal = 0;
 
     do
     {
@@ -194,6 +196,11 @@ int main(void)
             break;
         }
         case 0:
+            if (matlogg != NULL) {
+                frigor_matlogg(matlogg);
+                matlogg = NULL;
+                matlogg_antal = 0;
+            }
             printf("Avslutar.\n");
             break;
         default:
