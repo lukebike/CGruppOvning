@@ -13,8 +13,10 @@ static void skriv_meny(void)
     printf("6. Enkel rakning (+, -, *, /)\n");
     printf("7. Konvertera flera temperaturer (Celsius -> Fahrenheit)\n");
     printf("8. Storst rektangel i en lista\n");
+    printf("9. Flera multiplikationstabeller\n");
     printf("10. Rakna primtal i en lista\n");
     printf("11. FizzBuzz-sammanfattning\n");
+    printf("12. Byt plats pa tva tal\n");
     printf("0. Avsluta\n");
     printf("Val: ");
 }
@@ -136,6 +138,21 @@ int main(void)
             storsta_area, index + 1);
             break; 
         }
+        case 9:
+        {
+           int tal[20];
+           int antal;
+           
+           printf("Hur manga tabeller vill du skriva ut(max 20)? ");
+           scanf("%d", &antal);
+           for(int i = 0; i < antal; i++){
+            printf("Tal %d: ", i + 1);
+            scanf("%d", &tal[i]);
+           }
+
+           skriv_flera_tabeller(tal, antal);
+           break;
+        }
         case 10: 
         {
             int tal[20];
@@ -162,6 +179,18 @@ int main(void)
             fizzbuzz_sammanfattning(fran, till, sammanfattning);
             printf("%s\n", sammanfattning);
 
+            break;
+        }
+        case 12:
+        {
+            double a, b;
+
+            printf("Ange tva tal, t.ex. \"3 7\": ");
+            scanf("%lf %lf", &a, &b);
+
+            printf("Fore: a = %.2f, b = %2.f\n", a, b);
+            byt_plats(&a, &b);
+            printf("Efter: a = %.2f, b = %2.f\n", a, b);
             break;
         }
         case 0:
