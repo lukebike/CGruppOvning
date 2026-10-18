@@ -12,3 +12,5 @@ Vi fördelade modulerna så här mellan oss:
 - primtal: Hannes
 - fizzbuzz: Patrik
 - kalkylator: Luke
+
+- lagg_till_matning: Johannes
