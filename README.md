@@ -6,6 +6,7 @@ Gruppövning med Luke, Hannes, Johannes och Patrik
 
 Vi fördelade modulerna så här mellan oss:
 
+### Uppgrag 1 & 2
 - temperatur: Johannes
 - geometri: Johannes
 - multiplikation: Luke
@@ -13,4 +14,7 @@ Vi fördelade modulerna så här mellan oss:
 - fizzbuzz: Patrik
 - kalkylator: Luke
 
-- lagg_till_matning: Johannes
+### Uppdrag 3
+- matlogg_lagg_till: Johannes
+- matlogg_ta_bort: Patrik
+- matlogg_skriv: Patrik

@@ -18,6 +18,8 @@ static void skriv_meny(void)
     printf("11. FizzBuzz-sammanfattning\n");
     printf("12. Byt plats pa tva tal\n");
     printf("13. Lagg till en matning i matloggen\n");
+    printf("14. Ta bort senaste matningen\n");
+    printf("15. Skriv ut matloggen\n");
     printf("0. Avsluta\n");
     printf("Val: ");
 }
@@ -203,6 +205,17 @@ int main(void)
             scanf("%lf", &varde);
             matlogg = lagg_till_matning(matlogg, &matlogg_antal, varde);
             printf("Matloggen innehaller nu %d matning(ar).\n", matlogg_antal);
+            break;
+        }
+        case 14:
+        {
+            matlogg = ta_bort_senaste_matning(matlogg, &matlogg_antal);
+            printf("Matloggen innerhaller nu %d matning(ar).\n", matlogg_antal);
+            break;
+        }
+        case 15:
+        {
+            skriv_matlogg(matlogg, matlogg_antal);
             break;
         }
         case 0:

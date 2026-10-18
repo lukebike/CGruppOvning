@@ -15,5 +15,7 @@ double *storsta_area_ut, int *index_ut);
 int raknar_primtal_i_array(int tal[], int antal);
 void fizzbuzz_sammanfattning(int fran, int till, char *sammanfattning);
 double *lagg_till_matning(double *logg, int *antal, double varde);
+double *ta_bort_senaste_matning(double *logg, int *antal);
+void skriv_matlogg(double *logg, int antal);
 
 #endif
