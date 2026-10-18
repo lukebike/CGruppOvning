@@ -14,5 +14,6 @@ void storst_rektangel(double bredder[], double hojder[], int antal,
 double *storsta_area_ut, int *index_ut);
 int raknar_primtal_i_array(int tal[], int antal);
 void fizzbuzz_sammanfattning(int fran, int till, char *sammanfattning);
+double *lagg_till_matning(double *logg, int *antal, double varde);
 
 #endif
