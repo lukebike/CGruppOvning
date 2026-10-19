@@ -20,6 +20,7 @@ static void skriv_meny(void)
     printf("13. Lagg till en matning i matloggen\n");
     printf("14. Ta bort senaste matningen\n");
     printf("15. Skriv ut matloggen\n");
+    printf("16. Statistik for matloggen (min/max/medel)\n");
     printf("0. Avsluta\n");
     printf("Val: ");
 }
@@ -218,12 +219,19 @@ int main(void)
             skriv_matlogg(matlogg, matlogg_antal);
             break;
         }
+        case 16:
+        {
+            double min, max, medel;
+            berakna_loggstatistik(matlogg, matlogg_antal, &min, &max, &medel);
+            printf("Min: %2.f, Max: %.2f, Medel: %.2f\n", min, max, medel);
+            break;
+        }
         case 0:
-            if (matlogg != NULL) {
-                frigor_matlogg(matlogg);
-                matlogg = NULL;
-                matlogg_antal = 0;
-            }
+            // if (matlogg != NULL) {
+            //     frigor_matlogg(matlogg);
+            //     matlogg = NULL;
+            //     matlogg_antal = 0;
+            // }
             printf("Avslutar.\n");
             break;
         default:
