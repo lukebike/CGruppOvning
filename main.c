@@ -231,6 +231,16 @@ int main(void)
             printf("Min: %2.f, Max: %.2f, Medel: %.2f\n", min, max, medel);
             break;
         }
+        case 17:
+        {
+            int kopia_antal = matlogg_antal;
+            double *kopia = kopiera_matlogg(matlogg, matlogg_antal);
+            printf("Kopierade %d matning(ar) till en ny logg:\n", kopia_antal);
+            skriv_matlogg(kopia, kopia_antal);
+            frigor_matlogg(kopia);
+            printf("(Kopian ar nu frigjord igen -- den var bara for testet.)\n");
+            break;
+        }
         case 19:
         {
             char namn[50];
