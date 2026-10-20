@@ -21,8 +21,8 @@ static void skriv_meny(void)
     printf("14. Ta bort senaste matningen\n");
     printf("15. Skriv ut matloggen\n");
     printf("16. Statistik for matloggen (min/max/medel)\n");
-    // 17
-    // 18
+    printf("17. Kopiera matloggen\n");
+    printf("18. Frigor matloggen\n");
     printf("19. Lagg till en sensormatning\n");
     printf("0. Avsluta\n");
     printf("Val: ");
@@ -239,6 +239,14 @@ int main(void)
             skriv_matlogg(kopia, kopia_antal);
             frigor_matlogg(kopia);
             printf("(Kopian ar nu frigjord igen -- den var bara for testet.)\n");
+            break;
+        }
+        case 18:
+        {
+            frigor_matlogg(matlogg);
+            matlogg = NULL;
+            matlogg_antal = 0;
+            printf("Matloggen ar frigjord.\n");
             break;
         }
         case 19:
