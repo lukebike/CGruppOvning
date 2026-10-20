@@ -21,6 +21,9 @@ static void skriv_meny(void)
     printf("14. Ta bort senaste matningen\n");
     printf("15. Skriv ut matloggen\n");
     printf("16. Statistik for matloggen (min/max/medel)\n");
+    // 17
+    // 18
+    printf("19. Lagg till en sensormatning\n");
     printf("0. Avsluta\n");
     printf("Val: ");
 }
@@ -226,6 +229,19 @@ int main(void)
             double min, max, medel;
             berakna_loggstatistik(matlogg, matlogg_antal, &min, &max, &medel);
             printf("Min: %2.f, Max: %.2f, Medel: %.2f\n", min, max, medel);
+            break;
+        }
+        case 19:
+        {
+            char namn[50];
+            double varde;
+            printf("Namn pa sensorn (utan mellanslag): ");
+            scanf("%49s", namn);
+            printf("Matvarde: ");
+            scanf("%lf", &varde);
+            sensorregister = lagg_till_sensormatning(sensorregister, &sensorregister_antal, namn, varde);
+            printf("Sensorregistret innehaller nu %d post(er).\n",
+            sensorregister_antal);
             break;
         }
         case 0:
