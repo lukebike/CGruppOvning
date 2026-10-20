@@ -21,3 +21,7 @@ Vi fördelade modulerna så här mellan oss:
 - matlogg_ta_bort: Patrik
 - matlogg_skriv: Patrik
 - matlogg_statistik: Luke
+
+### Uppdrag 4
+
+- lagg_till_sensormatning: Johannes
