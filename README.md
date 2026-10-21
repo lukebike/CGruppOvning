@@ -6,7 +6,7 @@ Gruppövning med Luke, Hannes, Johannes och Patrik
 
 Vi fördelade modulerna så här mellan oss:
 
-### Uppgrag 1 & 2
+### Uppdrag 1 & 2
 
 - temperatur: Johannes
 - geometri: Johannes
@@ -24,4 +24,5 @@ Vi fördelade modulerna så här mellan oss:
 
 ### Uppdrag 4
 
-- lagg_till_sensormatning: Johannes
+- sensor_lagg_till: Johannes
+- sensor_skriv: Patrik
