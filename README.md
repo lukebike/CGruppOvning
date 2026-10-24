@@ -26,7 +26,7 @@ Vi fördelade modulerna så här mellan oss:
 
 - sensor_lagg_till: Johannes
 - sensor_skriv: Patrik
-- sensor_medelvarde:  
+- sensor_medelvarde:
 - sensor_hitta:
-- sensor_spara:
+- sensor_spara: Luke
 - sensor_lasa: Patrik
