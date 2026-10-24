@@ -25,6 +25,7 @@ static void skriv_meny(void)
     printf("18. Frigor matloggen\n");
     printf("19. Lagg till en sensormatning\n");
     printf("20. Skriv ut sensorregistret\n");
+    printf("23. Spara sensorregistret till fil\n");
     printf("24. Las in sensorregistret fran fil\n");
     printf("0. Avsluta\n");
     printf("Val: ");
@@ -279,6 +280,15 @@ int main(void)
             sensorregister = lasa_sensorregister(filnamn, &sensorregister_antal);
             printf("Laste in %d post(er) fran %s.\n", sensorregister_antal, filnamn);
             
+            break;
+        }
+        case 23: 
+        {
+            char filnamn[100];
+            printf("Filnamn att spara till: ");
+            scanf("%99s", filnamn);
+            spara_sensorregister(filnamn, sensorregister, sensorregister_antal);
+            printf("Sensorregistret sparat till %s.\n", filnamn);
             break;
         }
         case 0:
