@@ -20,8 +20,9 @@ double berakna(double num1, double num2, char symbol){
     };
 }
 
-void byt_plats(double *a, double *b){
-    double temp = *a;
-    *a = *b;
-    *b = temp;
+
+void byt_plats(double &a, double &b) {
+    double temp = a;
+    a = b;
+    b = temp;
 }

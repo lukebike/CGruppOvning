@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "verktyg.h"
+#include <iostream>
+#include <iomanip>
 
 static void skriv_meny(void)
 {
@@ -48,58 +50,48 @@ int main(void)
 
         switch (val)
         {
-        case 1:
+        case 1: 
         {
-            double celsius;
-
-            printf("Ange temperatur i Celsius: ");
-            scanf("%lf", &celsius);
-            printf("%.2f C = %.2f F\n",
-                   celsius, celsius_till_fahrenheit(celsius));
-            break;
+          double celsius;
+          std::cout << "Ange temperatur i Celsius: ";
+          std::cin >> celsius;
+          std::cout << celsius << " C = "
+                    << celsius_till_fahrenheit(celsius) << " F\n";
+          break;
         }
-        case 2:
+        case 2: 
         {
-            double bredd, hojd;
-
-            printf("Ange bredd och hojd: ");
-            scanf("%lf %lf", &bredd, &hojd);
-            printf("Arean ar %.2f\n", rektangelarea(bredd, hojd));
-            break;
+          double bredd, hojd;
+          std::cout << "Ange bredd och hojd: ";
+          std::cin >> bredd >> hojd;
+          std::cout << "Arean ar " << rektangelarea(bredd, hojd) << "\n";
+          break;
         }
-        case 3:
+        case 3: 
         {
-            int tal;
-
-            printf("Ange ett tal: ");
-            scanf("%d", &tal);
-            skriv_multiplikationstabell(tal);
-            break;
+          int tal;
+          std::cout << "Ange ett tal: ";
+          std::cin >> tal;
+          skriv_multiplikationstabell(tal);
+          break;
         }
-        case 4:
+        case 4: 
         {
-            int tal;
-
-            printf("Ange ett heltal: ");
-            scanf("%d", &tal);
-
-            if (ar_primtal(tal))
-            {
-                printf("%d ar ett primtal.\n", tal);
-            }
-            else
-            {
-                printf("%d ar inte ett primtal.\n", tal);
-            }
-
-            break;
+          int tal;
+          std::cout << "Ange ett heltal: ";
+          std::cin >> tal;
+          if (ar_primtal(tal)) {
+            std::cout << tal << " ar ett primtal.\n";
+          } else {
+            std::cout << tal << " ar inte ett primtal.\n";
+          }
+          break;
         }
         case 5:
         {
             int fran, till;
-
-            printf("Ange start och slut (t.ex. 1 20): ");
-            scanf("%d %d", &fran, &till);
+            std::cout << "Ange start och slut (t.ex. 1 20): ";
+            std::cin >> fran >> till;
             skriv_fizzbuzz(fran, till);
             break;
         }
@@ -107,81 +99,82 @@ int main(void)
         {
             double a, b;
             char operatortecken;
-
-            printf("Ange uttryck, t.ex. \"4 + 2\": ");
-            scanf("%lf %c %lf", &a, &operatortecken, &b);
-            printf("Resultat: %.2f\n", berakna(a, b, operatortecken));
+            std::cout << "Ange uttryck, t.ex. \"4 + 2\": ";
+            std::cin >> a >> operatortecken >> b;
+            std::cout << "Resultat: " << berakna(a, b, operatortecken) << "\n";
             break;
         }
         case 7:
         {
             double matningar[20];
             int antal;
-            printf("Hur manga matningar vill du mata in (max 20)? ");
-            scanf("%d", &antal);
+            std::cout << "Hur manga matningar vill du mata in (max 20)? ";
+            std::cin >> antal;
             for (int i = 0; i < antal; i++) {
-                printf("Matning %d (Celsius): ", i + 1);
-                scanf("%lf", &matningar[i]);
+              std::cout << "Matning " << (i + 1) << " (Celsius): ";
+              std::cin >> matningar[i];
             }
 
             konvertera_serie(matningar, antal);
-            printf("I Fahrenheit: ");
 
+            std::cout << "I Fahrenheit: ";
             for (int i = 0; i < antal; i++) {
-                printf("%.2f ", matningar[i]);
+              std::cout << matningar[i] << " ";
             }
-
-            printf("\n");
+            std::cout << "\n";
             break;
         }
-        case 8:
+        case 8: 
         {
-            double bredder[20], hojder[20];
-            int antal;
-            double storsta_area;
-            int index;
+          double bredder[20], hojder[20];
+          int antal;
+          double storsta_area;
+          int index;
 
-            printf("Hur manga rektanglar vill du jamfora (max 20)? ");
-            scanf("%d", &antal);
-            for (int i = 0; i < antal; i++) {
-            printf("Rektangel %d, bredd och hojd: ", i + 1);
-            scanf("%lf %lf", &bredder[i], &hojder[i]);
-            }
+          std::cout << "Hur manga rektanglar vill du jamfora (max 20)? ";
+          std::cin >> antal;
+          for (int i = 0; i < antal; i++) {
+            std::cout << "Rektangel " << (i + 1) << ", bredd och hojd: ";
+            std::cin >> bredder[i] >> hojder[i];
+          }
 
-            storst_rektangel(bredder, hojder, antal, &storsta_area, &index);
+          storst_rektangel(bredder, hojder, antal, storsta_area, index);
 
-            printf("Storst area ar %.2f, rektangel nummer %d\n",
-            storsta_area, index + 1);
-            break; 
+          std::cout << "Storst area ar " << storsta_area
+                    << ", rektangel nummer " << (index + 1) << "\n";
+          break;
         }
-        case 9:
-        {
-           int tal[20];
-           int antal;
-           
-           printf("Hur manga tabeller vill du skriva ut(max 20)? ");
-           scanf("%d", &antal);
-           for(int i = 0; i < antal; i++){
-            printf("Tal %d: ", i + 1);
-            scanf("%d", &tal[i]);
-           }
 
-           skriv_flera_tabeller(tal, antal);
-           break;
+
+        case 9: 
+        {
+          int tal[20];
+          int antal;
+
+          std::cout << "Hur manga tabeller vill du skriva ut (max 20)? ";
+          std::cin >> antal;
+          for (int i = 0; i < antal; i++) {
+            std::cout << "Tal " << (i + 1) << ": ";
+            std::cin >> tal[i];
+          }
+
+          skriv_flera_tabeller(tal, antal);
+          break;
         }
         case 10: 
         {
             int tal[20];
             int antal;
 
-            printf("Hur manga tal vill du kontrollera (max 20)? ");
-            scanf("%d", &antal);
+            std::cout << "Hur manga tal vill du kontrollera (max 20)? ";
+            std::cin >> antal;
             for (int i = 0; i < antal; i++) {
-            printf("Tal %d: ", i + 1);
-            scanf("%d", &tal[i]);
+              std::cout << "Tal " << (i + 1) << ": ";
+              std::cin >> tal[i];
             }
 
-            printf("Antal primtal: %d\n", raknar_primtal_i_array(tal, antal));
+            std::cout << "Antal primtal: "
+                      << raknar_primtal_i_array(tal, antal) << "\n";
             break;
         }
         case 11:
@@ -189,24 +182,22 @@ int main(void)
             int fran, till;
             char sammanfattning[100];
 
-            printf("Ange start och slut (t.ex. 1 20): ");
-            scanf("%d %d", &fran, &till);
+            std::cout << "Ange start och slut (t.ex. 1 20): ";
+            std::cin >> fran >> till;
 
             fizzbuzz_sammanfattning(fran, till, sammanfattning);
-            printf("%s\n", sammanfattning);
+            std::cout << sammanfattning << "\n";
 
             break;
         }
         case 12:
         {
             double a, b;
-
-            printf("Ange tva tal, t.ex. \"3 7\": ");
-            scanf("%lf %lf", &a, &b);
-
-            printf("Fore: a = %.2f, b = %2.f\n", a, b);
-            byt_plats(&a, &b);
-            printf("Efter: a = %.2f, b = %2.f\n", a, b);
+            std::cout << "Ange tva tal, t.ex. \"3 7\": ";
+            std::cin >> a >> b;
+            std::cout << "Fore: a = " << a << ", b = " << b << "\n";
+            byt_plats(a, b);
+            std::cout << "Efter: a = " << a << ", b = " << b << "\n";
             break;
         }
         case 13:

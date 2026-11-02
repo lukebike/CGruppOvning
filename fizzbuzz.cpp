@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include "verktyg.h"
+#include <iostream>
 
 void skriv_fizzbuzz(int fran, int till) {
     for (int i = fran; i <= till; i++) {
         if (i % 3 == 0 && i % 5 == 0) {
-            printf("FizzBuzz\n");
+            std::cout << "FizzBuzz\n";
         } else if (i % 3 == 0) {
-            printf("Fizz\n");
+            std::cout << "Fizz\n";
         } else if (i % 5 == 0) {
-            printf("Buzz\n");
+            std::cout << "Buzz\n";
         } else {
-            printf("%d\n", i);
+            std::cout << i << "\n";
         }
     }
 }

@@ -13,10 +13,10 @@ int ar_primtal(int tal);
 void skriv_fizzbuzz(int fran, int till);
 double berakna(double a, double b, char operatortecken);
 void skriv_flera_tabeller(int tal[], int antal);
-void byt_plats(double *a, double *b);
+void byt_plats(double &a, double &b);
 void konvertera_serie(double *matningar, int antal);
 void storst_rektangel(double bredder[], double hojder[], int antal,
-double *storsta_area_ut, int *index_ut);
+                      double &storsta_area_ut, int &index_ut);
 int raknar_primtal_i_array(int tal[], int antal);
 void fizzbuzz_sammanfattning(int fran, int till, char *sammanfattning);
 double *lagg_till_matning(double *logg, int *antal, double varde);
