@@ -42,11 +42,13 @@ int main(void)
     int matlogg_antal = 0;
     Sensormatning *sensorregister = NULL;
     int sensorregister_antal = 0;
+    std::cout << std::fixed << std::setprecision(2);
+    setvbuf(stdout, NULL, _IONBF, 0);
 
     do
     {
         skriv_meny();
-        scanf("%d", &val);
+        std::cin >> val;
 
         switch (val)
         {
