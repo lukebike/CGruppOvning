@@ -52,40 +52,40 @@ int main(void)
         {
         case 1: 
         {
-          double celsius;
-          std::cout << "Ange temperatur i Celsius: ";
-          std::cin >> celsius;
-          std::cout << celsius << " C = "
+            double celsius;
+            std::cout << "Ange temperatur i Celsius: ";
+            std::cin >> celsius;
+            std::cout << celsius << " C = "
                     << celsius_till_fahrenheit(celsius) << " F\n";
-          break;
+            break;
         }
         case 2: 
         {
-          double bredd, hojd;
-          std::cout << "Ange bredd och hojd: ";
-          std::cin >> bredd >> hojd;
-          std::cout << "Arean ar " << rektangelarea(bredd, hojd) << "\n";
-          break;
+            double bredd, hojd;
+            std::cout << "Ange bredd och hojd: ";
+            std::cin >> bredd >> hojd;
+            std::cout << "Arean ar " << rektangelarea(bredd, hojd) << "\n";
+            break;
         }
         case 3: 
         {
-          int tal;
-          std::cout << "Ange ett tal: ";
-          std::cin >> tal;
-          skriv_multiplikationstabell(tal);
-          break;
+            int tal;
+            std::cout << "Ange ett tal: ";
+            std::cin >> tal;
+            skriv_multiplikationstabell(tal);
+            break;
         }
         case 4: 
         {
-          int tal;
-          std::cout << "Ange ett heltal: ";
-          std::cin >> tal;
-          if (ar_primtal(tal)) {
+            int tal;
+            std::cout << "Ange ett heltal: ";
+            std::cin >> tal;
+            if (ar_primtal(tal)) {
             std::cout << tal << " ar ett primtal.\n";
-          } else {
+            } else {
             std::cout << tal << " ar inte ett primtal.\n";
-          }
-          break;
+            }
+            break;
         }
         case 5:
         {
@@ -111,55 +111,55 @@ int main(void)
             std::cout << "Hur manga matningar vill du mata in (max 20)? ";
             std::cin >> antal;
             for (int i = 0; i < antal; i++) {
-              std::cout << "Matning " << (i + 1) << " (Celsius): ";
-              std::cin >> matningar[i];
+                std::cout << "Matning " << (i + 1) << " (Celsius): ";
+                std::cin >> matningar[i];
             }
 
             konvertera_serie(matningar, antal);
 
             std::cout << "I Fahrenheit: ";
             for (int i = 0; i < antal; i++) {
-              std::cout << matningar[i] << " ";
+                std::cout << matningar[i] << " ";
             }
             std::cout << "\n";
             break;
         }
         case 8: 
         {
-          double bredder[20], hojder[20];
-          int antal;
-          double storsta_area;
-          int index;
+            double bredder[20], hojder[20];
+            int antal;
+            double storsta_area;
+            int index;
 
-          std::cout << "Hur manga rektanglar vill du jamfora (max 20)? ";
-          std::cin >> antal;
-          for (int i = 0; i < antal; i++) {
+            std::cout << "Hur manga rektanglar vill du jamfora (max 20)? ";
+            std::cin >> antal;
+            for (int i = 0; i < antal; i++) {
             std::cout << "Rektangel " << (i + 1) << ", bredd och hojd: ";
             std::cin >> bredder[i] >> hojder[i];
-          }
+            }
 
-          storst_rektangel(bredder, hojder, antal, storsta_area, index);
+            storst_rektangel(bredder, hojder, antal, storsta_area, index);
 
-          std::cout << "Storst area ar " << storsta_area
-                    << ", rektangel nummer " << (index + 1) << "\n";
-          break;
+            std::cout << "Storst area ar " << storsta_area
+                        << ", rektangel nummer " << (index + 1) << "\n";
+            break;
         }
 
 
         case 9: 
         {
-          int tal[20];
-          int antal;
+            int tal[20];
+            int antal;
 
-          std::cout << "Hur manga tabeller vill du skriva ut (max 20)? ";
-          std::cin >> antal;
-          for (int i = 0; i < antal; i++) {
-            std::cout << "Tal " << (i + 1) << ": ";
-            std::cin >> tal[i];
-          }
+            std::cout << "Hur manga tabeller vill du skriva ut (max 20)? ";
+            std::cin >> antal;
+            for (int i = 0; i < antal; i++) {
+                std::cout << "Tal " << (i + 1) << ": ";
+                std::cin >> tal[i];
+            }
 
-          skriv_flera_tabeller(tal, antal);
-          break;
+            skriv_flera_tabeller(tal, antal);
+            break;
         }
         case 10: 
         {
@@ -169,12 +169,12 @@ int main(void)
             std::cout << "Hur manga tal vill du kontrollera (max 20)? ";
             std::cin >> antal;
             for (int i = 0; i < antal; i++) {
-              std::cout << "Tal " << (i + 1) << ": ";
-              std::cin >> tal[i];
+                std::cout << "Tal " << (i + 1) << ": ";
+                std::cin >> tal[i];
             }
 
             std::cout << "Antal primtal: "
-                      << raknar_primtal_i_array(tal, antal) << "\n";
+                    << raknar_primtal_i_array(tal, antal) << "\n";
             break;
         }
         case 11:
@@ -204,7 +204,7 @@ int main(void)
         {
             double varde;
             printf("Ange matvarde att lagga till: ");
-            scanf("%lf", &varde);
+            std::cin >> varde;
             matlogg = lagg_till_matning(matlogg, &matlogg_antal, varde);
             printf("Matloggen innehaller nu %d matning(ar).\n", matlogg_antal);
             break;
@@ -250,9 +250,9 @@ int main(void)
             char namn[50];
             double varde;
             printf("Namn pa sensorn (utan mellanslag): ");
-            scanf("%49s", namn);
+            std::cin >> std::setw(50) >> namn;
             printf("Matvarde: ");
-            scanf("%lf", &varde);
+            std::cin >> varde;
             sensorregister = lagg_till_sensormatning(sensorregister, &sensorregister_antal, namn, varde);
             printf("Sensorregistret innehaller nu %d post(er).\n",
             sensorregister_antal);
@@ -274,7 +274,7 @@ int main(void)
             char namn[50];
 
             printf("Vilket namn vill du soka efter? ");
-            scanf("%49s", namn);
+            std::cin >> std::setw(50) >> namn;
             
             int index = hitta_sensor(sensorregister, sensorregister_antal, namn);
 
@@ -291,7 +291,7 @@ int main(void)
         {
             char filnamn[100];
             printf("Filnamn att lasa fran: ");
-            scanf("%99s", filnamn);
+            std::cin >> std::setw(100) >> filnamn;
 
             free(sensorregister);
             sensorregister = lasa_sensorregister(filnamn, &sensorregister_antal);
@@ -303,7 +303,7 @@ int main(void)
         {
             char filnamn[100];
             printf("Filnamn att spara till: ");
-            scanf("%99s", filnamn);
+            std::cin >> std::setw(100) >> filnamn;
             spara_sensorregister(filnamn, sensorregister, sensorregister_antal);
             printf("Sensorregistret sparat till %s.\n", filnamn);
             break;
