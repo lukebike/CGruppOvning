@@ -32,3 +32,12 @@ Vi fördelade modulerna så här mellan oss:
 - sensor_hitta: Hannes
 - sensor_spara: Luke
 - sensor_lasa: Patrik
+
+### Uppdrag 7
+
+- sensorobjekt_uppdatera: Luke
+- sensorobjekt_nollstall: Luke
+- sensorobjekt_grans:
+- sensorobjekt_bytnamn:
+- sensorobjekt_skriv:
+- sensorobjekt_jamfor:
