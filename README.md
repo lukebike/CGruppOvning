@@ -37,7 +37,7 @@ Vi fördelade modulerna så här mellan oss:
 
 - sensorobjekt_uppdatera: Luke
 - sensorobjekt_nollstall: Luke
-- sensorobjekt_grans:
-- sensorobjekt_bytnamn:
+- sensorobjekt_grans: Johannes
+- sensorobjekt_bytnamn: Johannes
 - sensorobjekt_skriv:
-- sensorobjekt_jamfor:
+- sensorobjekt_jamfor: Patrik
