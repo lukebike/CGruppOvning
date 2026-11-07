@@ -33,6 +33,8 @@ static void skriv_meny(void)
     printf("23. Spara sensorregistret till fil\n");
     printf("24. Las in sensorregistret fran fil\n");
     printf("25. Visa all sensorer (sensorobjekt)\n");
+
+    printf("30. Jamfor tva sensorer\n");
     
     printf("0. Avsluta\n");
     printf("Val: ");
