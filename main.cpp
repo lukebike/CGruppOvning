@@ -4,6 +4,9 @@
 #include <iostream>
 #include <iomanip>
 #include "sensorobjekt_klass.h"
+#include "temperatursensor_klass.h"
+#include "rorelsesensor_klass.h"
+#include "fuktsensor_klass.h"
 
 static void skriv_meny(void)
 {
@@ -41,6 +44,12 @@ static void skriv_meny(void)
     printf("31. Hamta information om en sensor (getters)\n");
     printf("32. Satt antal matningar direkt (testar validering)\n");
     printf("33. Kontrollera om en sensor ar giltig\n");
+    printf("34.Visa temperatursensorns enhet\n");
+    printf("35.Visa temperatursensorn i Fahrenheit\n");
+    printf("36.Visa om rorelse har detekterats\n");
+    printf("37.Utlos rorelselarmet\n");
+    printf("38.Visa fuktsensorns kritiska grans\n");
+    printf("39.Kontrollera om fuktsensorn ar kritiskt fuktig\n");
     printf("0. Avsluta\n");
     printf("Val: ");
 }
@@ -48,9 +57,9 @@ static void skriv_meny(void)
 int main(void)
 {
     int val;
-    double *matlogg = NULL;
+    double* matlogg = NULL;
     int matlogg_antal = 0;
-    Sensormatning *sensorregister = NULL;
+    Sensormatning* sensorregister = NULL;
     int sensorregister_antal = 0;
     Sensor sensorer[3] = {
         Sensor("Temp-ute", 18.5),
@@ -67,16 +76,16 @@ int main(void)
 
         switch (val)
         {
-        case 1: 
+        case 1:
         {
             double celsius;
             std::cout << "Ange temperatur i Celsius: ";
             std::cin >> celsius;
             std::cout << celsius << " C = "
-                    << celsius_till_fahrenheit(celsius) << " F\n";
+                << celsius_till_fahrenheit(celsius) << " F\n";
             break;
         }
-        case 2: 
+        case 2:
         {
             double bredd, hojd;
             std::cout << "Ange bredd och hojd: ";
@@ -84,7 +93,7 @@ int main(void)
             std::cout << "Arean ar " << rektangelarea(bredd, hojd) << "\n";
             break;
         }
-        case 3: 
+        case 3:
         {
             int tal;
             std::cout << "Ange ett tal: ";
@@ -92,15 +101,16 @@ int main(void)
             skriv_multiplikationstabell(tal);
             break;
         }
-        case 4: 
+        case 4:
         {
             int tal;
             std::cout << "Ange ett heltal: ";
             std::cin >> tal;
             if (ar_primtal(tal)) {
-            std::cout << tal << " ar ett primtal.\n";
-            } else {
-            std::cout << tal << " ar inte ett primtal.\n";
+                std::cout << tal << " ar ett primtal.\n";
+            }
+            else {
+                std::cout << tal << " ar inte ett primtal.\n";
             }
             break;
         }
@@ -141,7 +151,7 @@ int main(void)
             std::cout << "\n";
             break;
         }
-        case 8: 
+        case 8:
         {
             double bredder[20], hojder[20];
             int antal;
@@ -151,19 +161,19 @@ int main(void)
             std::cout << "Hur manga rektanglar vill du jamfora (max 20)? ";
             std::cin >> antal;
             for (int i = 0; i < antal; i++) {
-            std::cout << "Rektangel " << (i + 1) << ", bredd och hojd: ";
-            std::cin >> bredder[i] >> hojder[i];
+                std::cout << "Rektangel " << (i + 1) << ", bredd och hojd: ";
+                std::cin >> bredder[i] >> hojder[i];
             }
 
             storst_rektangel(bredder, hojder, antal, storsta_area, index);
 
             std::cout << "Storst area ar " << storsta_area
-                        << ", rektangel nummer " << (index + 1) << "\n";
+                << ", rektangel nummer " << (index + 1) << "\n";
             break;
         }
 
 
-        case 9: 
+        case 9:
         {
             int tal[20];
             int antal;
@@ -178,7 +188,7 @@ int main(void)
             skriv_flera_tabeller(tal, antal);
             break;
         }
-        case 10: 
+        case 10:
         {
             int tal[20];
             int antal;
@@ -191,7 +201,7 @@ int main(void)
             }
 
             std::cout << "Antal primtal: "
-                    << raknar_primtal_i_array(tal, antal) << "\n";
+                << raknar_primtal_i_array(tal, antal) << "\n";
             break;
         }
         case 11:
@@ -247,7 +257,7 @@ int main(void)
         case 17:
         {
             int kopia_antal = matlogg_antal;
-            double *kopia = kopiera_matlogg(matlogg, matlogg_antal);
+            double* kopia = kopiera_matlogg(matlogg, matlogg_antal);
             printf("Kopierade %d matning(ar) till en ny logg:\n", kopia_antal);
             skriv_matlogg(kopia, kopia_antal);
             frigor_matlogg(kopia);
@@ -272,7 +282,7 @@ int main(void)
             std::cin >> varde;
             sensorregister = lagg_till_sensormatning(sensorregister, &sensorregister_antal, namn, varde);
             printf("Sensorregistret innehaller nu %d post(er).\n",
-            sensorregister_antal);
+                sensorregister_antal);
             break;
         }
         case 20:
@@ -283,7 +293,7 @@ int main(void)
         case 21:
         {
             printf("Medelvarde: %.2f\n",
-            medelvarde_sensorregister(sensorregister, sensorregister_antal));
+                medelvarde_sensorregister(sensorregister, sensorregister_antal));
             break;
         }
         case 22:
@@ -292,19 +302,20 @@ int main(void)
 
             printf("Vilket namn vill du soka efter? ");
             std::cin >> std::setw(50) >> namn;
-            
+
             int index = hitta_sensor(sensorregister, sensorregister_antal, namn);
 
             if (index == -1) {
                 printf("Hittade ingen sensor med namnet \"%s\".\n", namn);
-            } else {
+            }
+            else {
                 printf("Hittade \"%s\" pa plats %d, varde %.2f\n",
-                namn, index, sensorregister[index].varde);
+                    namn, index, sensorregister[index].varde);
             }
 
             break;
         }
-        case 23: 
+        case 23:
         {
             char filnamn[100];
             printf("Filnamn att spara till: ");
@@ -322,19 +333,19 @@ int main(void)
             free(sensorregister);
             sensorregister = lasa_sensorregister(filnamn, &sensorregister_antal);
             printf("Laste in %d post(er) fran %s.\n", sensorregister_antal, filnamn);
-            
+
             break;
         }
         case 25:
         {
             for (int i = 0; i < 3; i++) {
-            std::cout << i << ": ";
-            sensorer[i].skrivUt();
+                std::cout << i << ": ";
+                sensorer[i].skrivUt();
 
+            }
+            break;
         }
-        break;
-        } 
-        case 26: 
+        case 26:
         {
             int index;
             double nyttVarde;
@@ -349,7 +360,7 @@ int main(void)
             sensorer[index].skrivUt();
             break;
         }
-        case 27: 
+        case 27:
         {
             int index;
 
@@ -361,7 +372,7 @@ int main(void)
             break;
         }
 
-        case 28: 
+        case 28:
         {
             int index;
             double min, max;
@@ -381,7 +392,7 @@ int main(void)
             }
             break;
         }
-        case 29: 
+        case 29:
         {
             int index;
             char nyttNamn[50];
@@ -392,14 +403,15 @@ int main(void)
             std::cout << "Nytt namn (utan mellanslag): ";
             std::cin >> std::setw(50) >> nyttNamn;
 
-            if(sensorer[index].bytNamn(nyttNamn)){
+            if (sensorer[index].bytNamn(nyttNamn)) {
                 sensorer[index].skrivUt();
-            } else {
+            }
+            else {
                 std::cout << "Ogiltigt namn -- namnet fick inte bytas.\n";
             }
             break;
         }
-        case 30: 
+        case 30:
         {
             int index1, index2;
 
@@ -408,10 +420,11 @@ int main(void)
 
             if (sensorer[index1].harHogreVarde(sensorer[index2])) {
                 std::cout << "Sensor " << index1 << " har ett hogre varde an sensor " << index2 << ".\n";
-            } else {
-            std::cout << "Sensor " << index1
-                  << " har inte ett hogre varde an sensor "
-                  << index2 << ".\n";
+            }
+            else {
+                std::cout << "Sensor " << index1
+                    << " har inte ett hogre varde an sensor "
+                    << index2 << ".\n";
             }
 
             break;
@@ -431,9 +444,10 @@ int main(void)
             std::cin >> index;
             std::cout << "Nytt antal matningar: ";
             std::cin >> nyttAntal;
-            if(sensorer[index].sattAntalMatningar(nyttAntal)) {
+            if (sensorer[index].sattAntalMatningar(nyttAntal)) {
                 std::cout << "Antal matningar uppdaterat.\n";
-            } else {
+            }
+            else {
                 std::cout << "Ogiltigt antal -- ett negativt antal accepteras inte.\n";
             }
             sensorer[index].skrivUt();
@@ -443,13 +457,45 @@ int main(void)
             int index;
             std::cout << "Vilken sensor (0-2)? ";
             std::cin >> index;
-            if(sensorer[index].arGiltig()) {
+            if (sensorer[index].arGiltig()) {
                 std::cout << "Sensorn ar giltig.\n";
-            } else {
+            }
+            else {
                 std::cout << "Sensorn ar INTE giltig.\n";
             }
             break;
         }
+        case 34:
+            std::cout << "Enhet: " << temperatursensor.hamtaEnhet() << "\n";
+            break;
+        case 35:
+            std::cout << temperatursensor.hamtaNamn() << " i Fahrenheit: "
+                << temperatursensor.hamtaSomFahrenheit() << "\n";
+            break;
+        case 36:
+            if (rorelsesensor.harRorelseDetekterats()) {
+                std::cout << "Rorelse har detekterats.\n";
+            }
+            else {
+                std::cout << "Ingen rorelse har detekterats.\n";
+            }
+            break;
+        case 37:
+            rorelsesensor.utlosLarm();
+            std::cout << "Larmet utlost.\n";
+            break;
+        case 38:
+            std::cout << "Kritisk grans: " << fuktsensor.hamtaKritiskGrans()
+                << "\n";
+            break;
+        case 39:
+            if (fuktsensor.arKritisktFuktigt()) {
+                std::cout << "Varning: kritiskt fuktigt!\n";
+            }
+            else {
+                std::cout << "Fuktnivan ar under den kritiska gransen.\n";
+            }
+            break;
         case 0:
             if (matlogg != NULL) {
                 frigor_matlogg(matlogg);
