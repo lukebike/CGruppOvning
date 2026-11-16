@@ -66,6 +66,9 @@ int main(void)
         Sensor("Temp-inne", 21.0),
         Sensor("Luftfuktighet", 45.0)
     };
+    TemperatureSensor temperatursensor("Temp-utomhus", 15.0, "Celsius");
+    MotionSensor rorelsesensor("Rorelse-hall");
+    HumiditySensor fuktsensor("Fukt-kallare", 55.0, 70.0);
     std::cout << std::fixed << std::setprecision(2);
     setvbuf(stdout, NULL, _IONBF, 0);
 
