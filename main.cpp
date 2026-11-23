@@ -65,6 +65,7 @@ int main(void)
     Sensormatning* sensorregister = NULL;
     int sensorregister_antal = 0;
     std::vector<Sensor*> sensorer;
+    std::vector<std::string> anteckningar;
     sensorer.push_back(new TemperatureSensor("Temp-ute", 18.5, "Celsius"));
     sensorer.push_back(new TemperatureSensor("Temp-inne", 21.0, "Celsius"));
     sensorer.push_back(new HumiditySensor("Luftfuktighet", 45.0, 70.0));
@@ -514,6 +515,7 @@ int main(void)
             else {
                 std::cout << "Fuktnivan ar under den kritiska gransen.\n";
             }
+            break;
         case 40: {
             int typ;
             std::string namn;
@@ -549,6 +551,31 @@ int main(void)
 
             std::cout << "Sensor tillagd. Antal sensorer nu : " << sensorer.size() << "\
                 n";
+            break;
+        }
+        case 41: {
+            std::cin.ignore();
+
+            std::string anteckning;
+
+            std::cout << "Skriv din anteckning: ";
+            std::getline(std::cin, anteckning);
+
+            anteckningar.push_back(anteckning);
+
+            std::cout << "Anteckning tillagd. Antal: "
+                    << anteckningar.size() << "\n";
+
+                break;
+        }
+        case 42:
+            if (anteckningar.empty()) {
+                std::cout << "Inga anteckningar an.\n";
+            } else {
+                for (size_t i = 0; i < anteckningar.size(); i++) {
+                    std::cout << i << ": " << anteckningar[i] << "\n";
+                }
+            }
             break;
         case 0:
             free(sensorregister);
