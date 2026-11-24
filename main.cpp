@@ -54,6 +54,10 @@ static void skriv_meny(void)
     printf("38. Visa fuktsensorns kritiska grans\n");
     printf("39. Kontrollera om fuktsensorn ar kritiskt fuktig\n");
     printf("40. Lagg till en ny sensor\n");
+    printf("41. Lagg till en anteckning\n");
+    printf("42. Visa alla anteckningar\n");
+    printf("43. Sok efter ett ord i anteckningarna\n");
+    printf("44. Sortera anteckningarna\n");
     printf("0. Avsluta\n");
     printf("Val: ");
 }
@@ -576,6 +580,28 @@ int main(void)
                     std::cout << i << ": " << anteckningar[i] << "\n";
                 }
             }
+            break;
+        case 43:{
+            std::cin.ignore();
+            std::string sokord;
+            std::cout << "Sok efter ordet: ";
+            std::getline(std::cin, sokord);
+
+            bool hittad = false;
+            for (size_t i = 0; i < anteckningar.size(); i++) {
+                if (anteckningar[i].find(sokord) != std::string::npos) {
+                    std::cout << i << ": " << anteckningar[i] << "\n";
+                    hittad = true;
+                }
+            }
+            if (!hittad) {
+                std::cout << "Hittade ingen anteckning med ordet \"" << sokord << "\".\n";
+            }
+            break;
+        }
+        case 44:
+            std::sort(anteckningar.begin(), anteckningar.end());
+            std::cout << "Anteckningarna ar nu sorterad i bokstavsordning.\n";
             break;
         case 0:
             free(sensorregister);
