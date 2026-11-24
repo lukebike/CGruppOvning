@@ -281,8 +281,8 @@ int main(void)
                 }
                 printf("Min: % .2f, Max : % .2f, Medel : % .2f\n",
                     *minIt, *maxIt, summa / matlogg.size());
-
             }
+            break;
         case 17: {
             std::vector<double> kopia = matlogg;
             printf("Kopierade % d matning(ar) till en ny logg : \n", (int)kopia.size());
