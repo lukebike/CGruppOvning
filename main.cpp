@@ -58,6 +58,8 @@ static void skriv_meny(void)
     printf("42. Visa alla anteckningar\n");
     printf("43. Sok efter ett ord i anteckningarna\n");
     printf("44. Sortera anteckningarna\n");
+    printf("45. Ta bort en anteckning\n");
+    printf("46. Rensa alla anteckningar\n");
     printf("0. Avsluta\n");
     printf("Val: ");
 }
@@ -603,6 +605,30 @@ int main(void)
             std::sort(anteckningar.begin(), anteckningar.end());
             std::cout << "Anteckningarna ar nu sorterad i bokstavsordning.\n";
             break;
+        case 45: {
+            if (anteckningar.empty()) {
+                std::cout << "Inga anteckningar att ta bort.\n";
+                break;
+            }
+            int index;
+            std::cout << "Vilket index vill du ta bort (0-"
+                      << (anteckningar.size() - 1) << ")? ";
+            std::cin >> index;
+            anteckningar.erase(anteckningar.begin() + index);
+            std::cout << "Borttagen. Antal kvar: " << anteckningar.size() << "\n";
+            break;
+        }
+        case 46: {
+            std::cout << "Antal anteckningar just nu: " << anteckningar.size() << "\n";
+            std::cout << "Rensa alla (1 = ja, 0 = nej)? ";
+            int svar;
+            std::cin >> svar;
+            if (svar == 1) {
+                anteckningar.clear();
+                std::cout << "Alla anteckningar rensade. \n";
+            }
+            break;
+        }
         case 0:
             free(sensorregister);
             sensorregister = NULL;
