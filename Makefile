@@ -16,7 +16,8 @@ KALLOR = main.cpp temperatur.cpp geometri.cpp multiplikation.cpp primtal.cpp \
 		 temperatursensor_skrivut.cpp rorelsesensor_typ.cpp \
 		 rorelsesensor_skrivut.cpp fuktsensor_typ.cpp fuktsensor_skrivut.cpp \
 		 sensorstatistik.cpp tester_hjalp.cpp tester_sensor_grund.cpp \
-		 tester_sensor_validering.cpp
+		 tester_sensor_validering.cpp tester_fukt.cpp tester_kalkylator.cpp \
+		 tester_temperatur.cpp tester_primtal.cpp \
 
 		 
 
